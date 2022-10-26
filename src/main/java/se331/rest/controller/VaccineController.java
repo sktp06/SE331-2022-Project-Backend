@@ -9,48 +9,49 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import se331.rest.entity.Patient;
-import se331.rest.service.PatientService;
+import se331.rest.entity.Vaccine;
+import se331.rest.service.VaccineService;
 import se331.rest.util.LabMapper;
 
 @Controller
-public class PatientController {
+public class VaccineController {
     @Autowired
-    PatientService patientService;
+    VaccineService vaccineService;
 
-    @GetMapping("patient")
-    public ResponseEntity<?> getPatientLists(@RequestParam(value = "_limit", required = false) Integer perPage
+    @GetMapping("vaccine")
+    public ResponseEntity<?> getVaccineLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page
             , @RequestParam(value = "title", required = false) String title) {
         perPage = perPage == null ? 3 : perPage;
         page = page == null ? 1 : page;
-        Page<Patient> pageOutput;
+        Page<Vaccine> pageOutput;
         if (title == null) {
-            pageOutput = patientService.getPatients(perPage, page);
+            pageOutput = vaccineService.getVaccines(perPage, page);
         } else {
-            pageOutput = patientService.getPatients(title, PageRequest.of(page - 1, perPage));
+            pageOutput = vaccineService.getVaccines(title, PageRequest.of(page - 1, perPage));
         }
         HttpHeaders responseHeader = new HttpHeaders();
 
         responseHeader.set("x-total-count", String.valueOf(pageOutput.getTotalElements()));
-        return new ResponseEntity<>(LabMapper.INSTANCE.getPatientDto(pageOutput.getContent()), responseHeader, HttpStatus.OK);
+        return new ResponseEntity<>(LabMapper.INSTANCE.getVaccineDto(pageOutput.getContent()), responseHeader, HttpStatus.OK);
 
 
     }
 
-    @GetMapping("patient/{id}")
-    public ResponseEntity<?> getPatient(@PathVariable("id") Long id) {
-        Patient output = patientService.getPatient(id);
+    @GetMapping("vaccine/{id}")
+    public ResponseEntity<?> getVaccine(@PathVariable("id") Long id) {
+        Vaccine output = vaccineService.getVaccine(id);
         if (output != null) {
-            return ResponseEntity.ok(LabMapper.INSTANCE.getPatientDto(output));
+            return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDto(output));
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
         }
     }
 
-    @PostMapping("/patient")
-    public ResponseEntity<?> addEvent(@RequestBody Patient patient) {
-        Patient output = patientService.save(patient);
-        return ResponseEntity.ok(LabMapper.INSTANCE.getPatientDto(output));
+    @PostMapping("/vaccine")
+    public ResponseEntity<?> addVaccine(@RequestBody Vaccine vaccine) {
+        Vaccine output = vaccineService.save(vaccine);
+        return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDto(output));
     }
+
 }

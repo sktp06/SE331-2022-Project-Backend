@@ -11,5 +11,7 @@ public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
     PatientDTO getPatientDto(Patient patient);
     List<PatientDTO> getPatientDto(List<Patient> patients);
+    VaccineDTO getVaccineDto(Vaccine vaccine);
+    List<VaccineDTO> getVaccineDto(List<Vaccine> vaccines);
 
 }

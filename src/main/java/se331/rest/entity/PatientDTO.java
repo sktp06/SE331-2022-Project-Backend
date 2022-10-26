@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Data
@@ -18,4 +19,5 @@ public class PatientDTO {
     String age;
     String homeTown;
     List<String> imageUrls;
+
 }
