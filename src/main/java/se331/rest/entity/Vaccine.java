@@ -16,6 +16,9 @@ public class Vaccine {
     Long id;
     String name;
 
+
     @ManyToOne
     Patient patient;
+    
+
 }

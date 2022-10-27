@@ -23,7 +23,7 @@ public class Patient {
     @ElementCollection
     List<String> imageUrls;
 
-    @OneToMany(mappedBy = "patient")
+    @OneToMany
     @Builder.Default
     List<Vaccine> vaccineList = new ArrayList<>();
 
