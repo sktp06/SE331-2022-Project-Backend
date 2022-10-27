@@ -19,5 +19,6 @@ public class PatientDTO {
     String age;
     String homeTown;
     List<String> imageUrls;
+    List<VaccineDTO> vaccineList;
 
 }
