@@ -20,12 +20,11 @@ public class Patient {
     String surname;
     String age;
     String homeTown;
+    String first_dose_date;
+    String second_dose_date;
     @ElementCollection
     List<String> imageUrls;
 
-    @OneToMany
-    @Builder.Default
-    List<Vaccine> vaccineList = new ArrayList<>();
 
 
 

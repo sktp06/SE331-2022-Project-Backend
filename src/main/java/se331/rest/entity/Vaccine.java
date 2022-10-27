@@ -3,6 +3,8 @@ package se331.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -16,9 +18,9 @@ public class Vaccine {
     Long id;
     String name;
 
+    @ManyToMany
+    @Builder.Default
+    List<Patient> patientList = new ArrayList<>();
 
-    @ManyToOne
-    Patient patient;
-    
 
 }
