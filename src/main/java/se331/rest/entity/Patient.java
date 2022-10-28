@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Data
 @Builder
 @Entity
@@ -24,6 +25,12 @@ public class Patient {
     String second_dose_date;
     @ElementCollection
     List<String> imageUrls;
+
+    @OneToOne
+    Doctor doctor;
+
+    @ManyToMany
+    List<Vaccine> vaccine;
 
 
 

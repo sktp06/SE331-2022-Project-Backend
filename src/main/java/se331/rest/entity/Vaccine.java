@@ -18,7 +18,7 @@ public class Vaccine {
     Long id;
     String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "vaccine")
     @Builder.Default
     List<Patient> patientList = new ArrayList<>();
 
