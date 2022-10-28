@@ -17,4 +17,7 @@ public interface LabMapper {
     VaccineDTO getDoctorDto(Doctor doctor);
     List<DoctorDTO> getDoctorDto(List<Doctor> doctors);
 
+    CommentDTO getCommentDTO(Comment comment);
+    List<CommentDTO> getCommentDTO(List<Comment> comments);
+
 }
