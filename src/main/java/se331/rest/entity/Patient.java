@@ -25,6 +25,10 @@ public class Patient {
     @ElementCollection
     List<String> imageUrls;
 
+    @OneToMany
+    @Builder.Default
+    List<Comment> commentList = new ArrayList<>();
+
 
 
 
