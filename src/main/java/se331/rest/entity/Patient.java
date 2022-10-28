@@ -25,6 +25,8 @@ public class Patient {
     String second_dose;
     String first_dose_date;
     String second_dose_date;
+    String doctor_comment_patient;
+    String image;
     @ElementCollection
     List<String> imageUrls;
 
