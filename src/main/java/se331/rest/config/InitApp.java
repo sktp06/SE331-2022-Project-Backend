@@ -51,6 +51,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Giles")
                 .age("18")
                 .homeTown("Mount Stone")
+                .first_dose("Pfizer")
+                .second_dose("Pfizer")
                 .first_dose_date("Jun 14, 2022")
                 .second_dose_date("Sep 20, 2022")
                 .build());
@@ -63,6 +65,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Quintana")
                 .age("20")
                 .homeTown("St Stour")
+                .first_dose("AstraZeneca")
                 .first_dose_date("Jan 30, 2022")
                 .build());
         vac3.getPatientList().add(pat2);
@@ -73,6 +76,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Dixon")
                 .age("23")
                 .homeTown("Unmoglos")
+                .first_dose("Moderna")
+                .second_dose("Moderna")
                 .first_dose_date("Apr 05, 2022")
                 .second_dose_date("July 12, 2022")
                 .build());
@@ -85,6 +90,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Howe")
                 .age("21")
                 .homeTown("East Masbeau")
+                .first_dose("Pfizer")
+                .second_dose("Pfizer")
                 .first_dose_date("Feb 19, 2022")
                 .second_dose_date("Jun 25, 2022")
                 .build());
@@ -98,6 +105,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Carroll")
                 .age("18")
                 .homeTown("Port Tiermurgu")
+                .first_dose("Pfizer")
+                .second_dose("Moderna")
                 .first_dose_date("Jan 24, 2022")
                 .second_dose_date("April 19, 2022")
                 .build());
@@ -111,6 +120,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Vaughn")
                 .age("23")
                 .homeTown("Kalbci Colonies")
+                .first_dose("Moderna")
                 .first_dose_date("Jan 02, 2022")
                 .build());
         vac2.getPatientList().add(pat6);

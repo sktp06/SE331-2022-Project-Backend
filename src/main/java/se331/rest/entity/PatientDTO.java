@@ -18,6 +18,8 @@ public class PatientDTO {
     String surname;
     String age;
     String homeTown;
+    String first_dose;
+    String second_dose;
     String first_dose_date;
     String second_dose_date;
     List<String> imageUrls;
