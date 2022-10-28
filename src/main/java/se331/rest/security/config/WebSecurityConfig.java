@@ -47,11 +47,11 @@ public class WebSecurityConfig {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
-                .antMatchers("/auth/**",  "/refresh", "/organizers", "/register").permitAll()
-                .antMatchers(HttpMethod.GET,"/event").permitAll()
+                .antMatchers("/auth/**",  "/refresh", "/doctors", "/register").permitAll()
+                .antMatchers(HttpMethod.GET,"/patient").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/register").permitAll()
-                .antMatchers(HttpMethod.POST,"/event").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/doctor").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
