@@ -47,10 +47,9 @@ public class WebSecurityConfig {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
-                .antMatchers("/auth/**",  "/refresh", "/organizers", "/register").permitAll()
+                .antMatchers("/auth/**",  "/refresh").permitAll()
                 .antMatchers(HttpMethod.GET,"/event").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/register").permitAll()
                 .antMatchers(HttpMethod.POST,"/event").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
@@ -61,7 +60,7 @@ public class WebSecurityConfig {
 
 
 
-
+    @Bean
     ServerHttpSecurity serverHttpSecurity() {
 
         return ServerHttpSecurity.http();
