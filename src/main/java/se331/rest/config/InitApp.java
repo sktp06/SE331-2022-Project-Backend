@@ -85,6 +85,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .age("20")
                 .homeTown("St Stour")
                 .first_dose("AstraZeneca")
+                .second_dose("-")
+                .second_dose_date("-")
                 .first_dose_date("Jan 30, 2022")
                 .doctor_comment_patient("Stop smoking")
                         .image("https://media.gq.com/photos/5f356039092046da7abdb510/master/w_2000,h_3000,c_limit/travis-scott-gq-cover-september-2020-04.jpg")
@@ -149,6 +151,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .homeTown("Kalbci Colonies")
                 .first_dose("Moderna")
                 .first_dose_date("Jan 02, 2022")
+                .second_dose("-")
+                .second_dose_date("-")
                 .doctor_comment_patient("Exercise more")
                 .image("https://media.glamour.com/photos/60afe10e10793d699b3144cd/6:7/w_2568,h_2996,c_limit/SOUR_FINAL.jpg")
                 .build());

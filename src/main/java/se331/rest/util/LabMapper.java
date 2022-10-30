@@ -21,6 +21,8 @@ public interface LabMapper {
 
     CommentDTO getCommentDTO(Comment comment);
     List<CommentDTO> getCommentDTO(List<Comment> comments);
+    List<VaccineDTO> getVaccineDTO(List<Vaccine> vaccines);
+
 
     @Mapping(target = "authorities", expression = "java(admin.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
     AdminAuthDTO getAdminAuthDTO(Admin admin);
