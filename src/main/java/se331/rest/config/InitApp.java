@@ -150,7 +150,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .first_dose("Moderna")
                 .first_dose_date("Jan 02, 2022")
                 .doctor_comment_patient("Exercise more")
-                .image("https://static.wikia.nocookie.net/disney/images/9/9e/Olivia_Rodrigo.jpg/revision/latest?cb=20220603133451")
+                .image("https://media.glamour.com/photos/60afe10e10793d699b3144cd/6:7/w_2568,h_2996,c_limit/SOUR_FINAL.jpg")
                 .build());
         vac2.getPatientList().add(pat6);
         doc2.getPatientList().add(pat6);
