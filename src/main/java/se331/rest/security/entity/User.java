@@ -60,7 +60,20 @@ public class User {
     @NotNull
     private Date lastPasswordResetDate;
 
-	@Builder.Default
+    @Column(name="IMAGE")
+    String image;
+
+    @Column(name="AGE")
+    String age;
+
+    @Column(name="HOMETOWN")
+    String hometown;
+
+    @Column(name="GENDER")
+    String gender;
+
+
+    @Builder.Default
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Authority> authorities = new ArrayList<>();
 

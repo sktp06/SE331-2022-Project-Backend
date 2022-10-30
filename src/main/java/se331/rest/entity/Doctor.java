@@ -5,6 +5,7 @@ import se331.rest.security.entity.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -28,4 +29,7 @@ public class Doctor {
     List<Patient> patientList = new ArrayList<>();
 
 
+    @OneToMany(mappedBy = "doctor")
+    @Builder.Default
+    List<Patient> peopleList = new ArrayList<>();
 }

@@ -33,6 +33,9 @@ public class Patient {
     @OneToOne
     User user;
 
+    @ManyToOne
+    Doctor doctor;
+
     @OneToMany
     @Builder.Default
     List<Comment> commentList = new ArrayList<>();
