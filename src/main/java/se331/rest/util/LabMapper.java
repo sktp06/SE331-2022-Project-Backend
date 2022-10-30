@@ -20,7 +20,7 @@ public interface LabMapper {
     List<DoctorDTO> getDoctorDto(List<Doctor> doctors);
 
     CommentDTO getCommentDTO(Comment comment);
-    List<CommentDTO> getCommentDTO(List<Comment> comments);
+    List<CommentDTO> getCommentDto(List<Comment> comments);
 
     @Mapping(target = "authorities", expression = "java(admin.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
     AdminAuthDTO getAdminAuthDTO(Admin admin);
@@ -32,4 +32,7 @@ public interface LabMapper {
     DoctorAuthDTO getDoctorAuthDTO(Doctor doctor);
 
     UserDTO getUserDTO(User user);
+    @Mapping(target = "authorities", expression = "java(comment.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+    CommentAuthDTO getCommentAuthDTO(Comment comment);
+
 }

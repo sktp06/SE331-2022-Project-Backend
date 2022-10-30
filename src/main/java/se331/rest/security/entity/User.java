@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import se331.rest.entity.Admin;
+import se331.rest.entity.Comment;
 import se331.rest.entity.Doctor;
 import se331.rest.entity.Patient;
 
@@ -72,4 +73,7 @@ public class User {
 
     @OneToOne
     Admin admin;
+
+    @OneToOne
+    Comment comment;
 }
