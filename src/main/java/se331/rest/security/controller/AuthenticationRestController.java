@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import se331.rest.security.entity.Authority;
 import se331.rest.security.entity.AuthorityName;
@@ -85,10 +86,12 @@ public class AuthenticationRestController {
         if (user.getDoctor() != null) {
             result.put("user", LabMapper.INSTANCE.getDoctorAuthDTO(user.getDoctor()));
         }
+        result.put("user", LabMapper.INSTANCE.getUserAuthDTO(user));
         return ResponseEntity.ok(result);
     }
 
     @PostMapping("/register")
+    @Transactional
     public ResponseEntity<?> registerUser(@RequestBody User user) throws  AuthenticationException{
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         Authority authUser = Authority.builder().name(AuthorityName.ROLE_USER).build();
