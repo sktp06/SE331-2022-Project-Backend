@@ -6,7 +6,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import se331.rest.dao.VaccineDao;
+import se331.rest.entity.Patient;
 import se331.rest.entity.Vaccine;
+
+import java.util.List;
 
 @Service
 public class VaccineServiceImpl implements VaccineService {
@@ -37,5 +40,9 @@ public class VaccineServiceImpl implements VaccineService {
     @Override
     public Page<Vaccine> getVaccines(String name, Pageable pageable) {
         return vaccineDao.getVaccines(name,pageable);
+    }
+    @Override
+    public List<Vaccine> getAllPatients() {
+        return vaccineDao.getVaccine(Pageable.unpaged()).getContent();
     }
 }

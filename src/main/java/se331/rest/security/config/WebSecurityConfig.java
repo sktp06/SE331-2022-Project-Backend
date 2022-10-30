@@ -50,7 +50,7 @@ public class WebSecurityConfig {
                 .antMatchers("/auth/**",  "/refresh", "/doctors", "/register").permitAll()
                 .antMatchers(HttpMethod.GET,"/patient/**","/patients").permitAll()
                 .antMatchers(HttpMethod.GET,"/doctor/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/vaccine/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/vaccine/**","/vaccines").permitAll()
                 .antMatchers(HttpMethod.GET,"/comment/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/register").permitAll()

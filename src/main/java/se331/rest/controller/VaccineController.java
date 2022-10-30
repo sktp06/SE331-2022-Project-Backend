@@ -17,7 +17,10 @@ import se331.rest.util.LabMapper;
 public class VaccineController {
     @Autowired
     VaccineService vaccineService;
-
+    @GetMapping("vaccines")
+    public ResponseEntity<?> getPatients() {
+        return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDto(vaccineService.getAllPatients()));
+    }
     @GetMapping("vaccine")
     public ResponseEntity<?> getVaccineLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page

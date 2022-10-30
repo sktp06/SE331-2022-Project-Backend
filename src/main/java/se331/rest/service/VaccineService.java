@@ -13,4 +13,6 @@ public interface VaccineService {
     Vaccine getVaccine(Long id);
     Vaccine save(Vaccine vaccine);
     Page<Vaccine> getVaccines(String name, Pageable pageable);
+
+    List<Vaccine> getAllPatients();
 }
