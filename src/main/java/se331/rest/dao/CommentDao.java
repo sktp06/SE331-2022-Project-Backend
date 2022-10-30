@@ -9,6 +9,6 @@ public interface CommentDao {
     Integer getCommentSize();
     Page<Comment> getComments(Integer pageSize, Integer page);
     Comment getComment(Long id);
-    Comment save(Comment patient);
+    Comment save(Comment comment);
     Page<Comment> getComments(String name, Pageable pageable);
 }

@@ -32,7 +32,7 @@ public interface LabMapper {
     DoctorAuthDTO getDoctorAuthDTO(Doctor doctor);
 
     UserDTO getUserDTO(User user);
-    @Mapping(target = "authorities", expression = "java(comment.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    CommentAuthDTO getCommentAuthDTO(Comment comment);
+//    @Mapping(target = "authorities", expression = "java(comment.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
+//    CommentAuthDTO getCommentAuthDTO(Comment comment);
 
 }
