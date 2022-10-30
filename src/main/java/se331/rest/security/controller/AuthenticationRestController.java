@@ -85,14 +85,13 @@ public class AuthenticationRestController {
         if (user.getDoctor() != null) {
             result.put("user", LabMapper.INSTANCE.getDoctorAuthDTO(user.getDoctor()));
         }
-
         return ResponseEntity.ok(result);
     }
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) throws  AuthenticationException{
         PasswordEncoder encoder = new BCryptPasswordEncoder();
-        Authority authUser = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
+        Authority authUser = Authority.builder().name(AuthorityName.ROLE_USER).build();
         authorityRepository.save(authUser);
         User user2 = User.builder()
                 .enabled(true)

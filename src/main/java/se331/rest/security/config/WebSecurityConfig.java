@@ -53,7 +53,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET,"/vaccine/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/comment/**").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/register").permitAll()
+                .antMatchers(HttpMethod.POST,"/register").permitAll()
                 .antMatchers(HttpMethod.POST,"/doctor").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();

@@ -164,21 +164,21 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user1.setDoctor(doc1);
         pat1.setUser(user2);
         user2.setPatient(pat1);
-        pat2.setUser(user2);
-        user2.setPatient(pat2);
-        pat3.setUser(user2);
-        user2.setPatient(pat3);
-        pat4.setUser(user2);
-        user2.setPatient(pat4);
-        pat5.setUser(user2);
-        user2.setPatient(pat5);
-        pat6.setUser(user2);
-        user2.setPatient(pat6);
+        pat2.setUser(user5);
+        user5.setPatient(pat2);
+        pat3.setUser(user6);
+        user6.setPatient(pat3);
+        pat4.setUser(user7);
+        user7.setPatient(pat4);
+        pat5.setUser(user8);
+        user8.setPatient(pat5);
+        pat6.setUser(user9);
+        user9.setPatient(pat6);
         doc2.setUser(user3);
         user3.setDoctor(doc2);
 
     }
-    User user1,user2,user3,user4;
+    User user1,user2,user3,user4,user5,user6,user7,user8,user9;
     private  void addUser(){
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -226,6 +226,56 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
                         .atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
+        user5 = User.builder()
+                .username("user1")
+                .password(encoder.encode("user1"))
+                .firstname("user1")
+                .lastname("user1")
+                .email("enabled@user.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
+                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        user6 = User.builder()
+                .username("user2")
+                .password(encoder.encode("user2"))
+                .firstname("user2")
+                .lastname("user2")
+                .email("user2@user.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
+                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        user7 = User.builder()
+                .username("user3")
+                .password(encoder.encode("user3"))
+                .firstname("user3")
+                .lastname("user3")
+                .email("user3@user.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
+                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        user8 = User.builder()
+                .username("user4")
+                .password(encoder.encode("user4"))
+                .firstname("user4")
+                .lastname("user4")
+                .email("user4@user.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
+                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+        user9 = User.builder()
+                .username("user5")
+                .password(encoder.encode("user5"))
+                .firstname("user5")
+                .lastname("user5")
+                .email("user5@user.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
+                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
 
         authorityRepository.save(authUser);
         authorityRepository.save(authAdmin);
@@ -236,11 +286,24 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user2.getAuthorities().add(authUser);
         user3.getAuthorities().add(authDoctor);
         user4.getAuthorities().add(authUser);
+        user5.getAuthorities().add(authUser);
+        user6.getAuthorities().add(authUser);
+        user7.getAuthorities().add(authUser);
+        user8.getAuthorities().add(authUser);
+        user9.getAuthorities().add(authUser);
+
 
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);
         userRepository.save(user4);
+        userRepository.save(user5);
+        userRepository.save(user6);
+        userRepository.save(user7);
+        userRepository.save(user8);
+        userRepository.save(user9);
+
+
 
     }
 
