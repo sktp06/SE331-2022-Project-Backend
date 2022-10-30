@@ -48,7 +48,7 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh", "/doctors", "/register").permitAll()
-                .antMatchers(HttpMethod.GET,"/patient/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/patient/**","/patients").permitAll()
                 .antMatchers(HttpMethod.GET,"/doctor/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/vaccine/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/comment/**").permitAll()

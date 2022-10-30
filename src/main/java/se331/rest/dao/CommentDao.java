@@ -11,4 +11,5 @@ public interface CommentDao {
     Comment getComment(Long id);
     Comment save(Comment comment);
     Page<Comment> getComments(String name, Pageable pageable);
+    Page<Comment> getComment(Pageable pageRequest);
 }

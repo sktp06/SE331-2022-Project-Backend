@@ -18,6 +18,11 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
+    @GetMapping("patients")
+    public ResponseEntity<?> getPatients() {
+        return ResponseEntity.ok(LabMapper.INSTANCE.getPatientDto(patientService.getAllPatients()));
+    }
+
     @GetMapping("patient")
     public ResponseEntity<?> getPatientLists(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page

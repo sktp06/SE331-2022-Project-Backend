@@ -11,6 +11,8 @@ public interface CommentService {
     Integer getCommentSize();
     Page<Comment> getComments(Integer pageSize, Integer page);
     Comment getComment(Long id);
-    Comment save(Comment vaccine);
+    Comment save(Comment comment);
     Page<Comment> getComments(String name, Pageable pageable);
+
+    List<Comment> getAllComments();
 }

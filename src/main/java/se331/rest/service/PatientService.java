@@ -13,4 +13,5 @@ public interface PatientService {
     Patient save(Patient patient);
     Page<Patient> getPatients(String name, Pageable pageable);
 
+    List<Patient> getAllPatients();
 }

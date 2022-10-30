@@ -23,6 +23,10 @@ public class CommentController {
     CommentService commentService;
     @Autowired
     PatientService patientService;
+    @GetMapping("/comments")
+    ResponseEntity<?> getcomment() {
+        return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(commentService.getAllComments()));
+    }
     @GetMapping("/comment")
     public ResponseEntity<?> getcomments(@RequestParam(value = "_limit", required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page
@@ -38,12 +42,12 @@ public class CommentController {
         HttpHeaders responseHeader = new HttpHeaders();
 
         responseHeader.set("x-total-count", String.valueOf(pageOutput.getTotalElements()));
-        return new ResponseEntity<>(LabMapper.INSTANCE.getCommentDto(pageOutput.getContent()), responseHeader, HttpStatus.OK);
+        return new ResponseEntity<>(LabMapper.INSTANCE.getCommentDTO(pageOutput.getContent()), responseHeader, HttpStatus.OK);
 
 
     }
     @PostMapping("/comment/patient/{id}")
-    ResponseEntity<?> addComment(@PathVariable("id") Long id, @RequestBody Comment comment) {
+    public ResponseEntity<?> addComment(@PathVariable("id") Long id, @RequestBody Comment comment) {
         Patient output = patientService.getPatient(id);
         output.getCommentList().add(comment);
         Comment outComment = commentService.save(comment);

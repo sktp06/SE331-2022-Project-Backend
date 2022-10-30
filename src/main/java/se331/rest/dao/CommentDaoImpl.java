@@ -35,4 +35,9 @@ public class CommentDaoImpl implements CommentDao{
         return commentRepository.findByName(name, pageable);
 
     }
+
+    @Override
+    public Page<Comment> getComment(Pageable pageRequest) {
+        return commentRepository.findAll(pageRequest);
+    }
 }

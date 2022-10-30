@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import se331.rest.entity.Patient;
+import se331.rest.entity.Patient;
 import se331.rest.repository.PatientRepository;
 
 import java.util.List;
@@ -37,5 +38,8 @@ public class PatientDaoImpl implements PatientDao{
         return patientRepository.findByName(name, pageable);
 
     }
-
+    @Override
+    public Page<Patient> getPatient(Pageable pageRequest) {
+        return patientRepository.findAll(pageRequest);
+    }
 }
