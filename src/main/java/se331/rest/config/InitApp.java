@@ -104,6 +104,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vac1.getPatientList().add(pat1);
         doc1.getPatientList().add(pat1);
         com1.getPatientList().add(pat1);
+        pat1.getCommentList().add(com1);
 
 
         pat2 = patientRepository.save(Patient.builder()
@@ -121,6 +122,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vac3.getPatientList().add(pat2);
         doc1.getPatientList().add(pat2);
         com2.getPatientList().add(pat2);
+        pat2.getCommentList().add(com2);
+
 
 
         pat3 = patientRepository.save(Patient.builder()
@@ -139,6 +142,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vac2.getPatientList().add(pat3);
         doc1.getPatientList().add(pat3);
         com3.getPatientList().add(pat3);
+        pat3.getCommentList().add(com3);
+
 
 
         pat4 = patientRepository.save(Patient.builder()
@@ -157,6 +162,10 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vac2.getPatientList().add(pat4);
         doc2.getPatientList().add(pat4);
         com4.getPatientList().add(pat4);
+        pat4.getCommentList().add(com4);
+
+
+
 
 
 
@@ -176,6 +185,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vac3.getPatientList().add(pat5);
         doc2.getPatientList().add(pat5);
         com5.getPatientList().add(pat5);
+        pat5.getCommentList().add(com5);
+
+
 
 
 
@@ -194,6 +206,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         vac2.getPatientList().add(pat6);
         doc2.getPatientList().add(pat6);
         com6.getPatientList().add(pat6);
+        pat6.getCommentList().add(com6);
         addUser();
 
         doc1.setUser(user1);

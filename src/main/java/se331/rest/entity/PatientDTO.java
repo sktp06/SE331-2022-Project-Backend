@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -25,5 +26,7 @@ public class PatientDTO {
 //    String doctor_comment_patient;
     String image;
     List<String> imageUrls;
+    List<CommentDTO> commentList = new ArrayList<>();
+
 
 }
