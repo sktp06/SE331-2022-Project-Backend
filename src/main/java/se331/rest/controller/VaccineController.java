@@ -13,6 +13,7 @@ import se331.rest.entity.Comment;
 import se331.rest.entity.Doctor;
 import se331.rest.entity.Patient;
 import se331.rest.entity.Vaccine;
+import se331.rest.service.PatientService;
 import se331.rest.service.VaccineService;
 import se331.rest.util.LabMapper;
 
@@ -20,6 +21,9 @@ import se331.rest.util.LabMapper;
 public class VaccineController {
     @Autowired
     VaccineService vaccineService;
+
+    @Autowired
+    PatientService patientService;
 
     @GetMapping("/vaccine")
     ResponseEntity<?> getVaccines() {
@@ -29,16 +33,18 @@ public class VaccineController {
     public ResponseEntity<?> getVaccine(@PathVariable("id") Long id) {
         Vaccine output = vaccineService.getVaccine(id);
         if (output != null) {
-            return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDto(output));
+            return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDTO(output));
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
         }
     }
 
-    @PostMapping("/vaccine")
-    public ResponseEntity<?> addVaccine(@RequestBody Vaccine vaccine) {
+    @PostMapping("/vaccine/patient/{id}")
+    ResponseEntity<?> addVaccine(@PathVariable("id") Long id,@RequestBody Vaccine vaccine){
+        Patient output_id = patientService.getPatient(id);
+        output_id.getVaccineList().add(vaccine);
         Vaccine output = vaccineService.save(vaccine);
-        return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDto(output));
+        return ResponseEntity.ok(LabMapper.INSTANCE.getVaccineDTO(output));
     }
 
 

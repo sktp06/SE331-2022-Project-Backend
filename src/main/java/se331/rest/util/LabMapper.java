@@ -13,15 +13,13 @@ public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
     PatientDTO getPatientDto(Patient patient);
     List<PatientDTO> getPatientDto(List<Patient> patients);
-    VaccineDTO getVaccineDto(Vaccine vaccine);
-    List<VaccineDTO> getVaccineDto(List<Vaccine> vaccines);
-
-    VaccineDTO getDoctorDto(Doctor doctor);
+    DoctorDTO getDoctorDto(Doctor doctor);
     List<DoctorDTO> getDoctorDto(List<Doctor> doctors);
 
     CommentDTO getCommentDTO(Comment comment);
     List<CommentDTO> getCommentDTO(List<Comment> comments);
     List<VaccineDTO> getVaccineDTO(List<Vaccine> vaccines);
+    VaccineDTO getVaccineDTO(Vaccine vaccine);
 
 
     @Mapping(target = "authorities", expression = "java(admin.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")

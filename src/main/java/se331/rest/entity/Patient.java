@@ -40,6 +40,10 @@ public class Patient {
     @Builder.Default
     List<Comment> commentList = new ArrayList<>();
 
+    @OneToMany
+    @Builder.Default
+    List<Vaccine> vaccineList = new ArrayList<>();
+
 
 
 
