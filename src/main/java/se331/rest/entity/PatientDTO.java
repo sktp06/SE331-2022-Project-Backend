@@ -27,6 +27,7 @@ public class PatientDTO {
     String image;
     List<String> imageUrls;
     List<CommentDTO> commentList = new ArrayList<>();
+    List<VaccineDTO> vaccineList = new ArrayList<>();
 
 
 }
