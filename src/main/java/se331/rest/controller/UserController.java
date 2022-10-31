@@ -122,5 +122,10 @@ public class UserController {
         doctorService.save(doctor);
         return ResponseEntity.ok(LabMapper.INSTANCE.getPatientDto(user));
     }
+    @PostMapping("/user")
+    public ResponseEntity<?> addUser(@RequestBody User user) {
+        User output = userService.save(user);
+        return ResponseEntity.ok(LabMapper.INSTANCE.getUserDTO(output));
+    }
 }
 
