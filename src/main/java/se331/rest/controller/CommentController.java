@@ -45,8 +45,10 @@ public class CommentController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
         }
     }
-    @PostMapping("/comment")
-    public ResponseEntity<?> addComment(@RequestBody Comment comment) {
+    @PostMapping("/comment/patient/{id}")
+    ResponseEntity<?> addComment(@PathVariable("id") Long id,@RequestBody Comment comment){
+        Patient output_id = patientService.getPatient(id);
+        output_id.getCommentList().add(comment);
         Comment output = commentService.save(comment);
         return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(output));
     }

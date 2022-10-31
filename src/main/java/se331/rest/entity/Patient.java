@@ -36,10 +36,10 @@ public class Patient {
     @ManyToOne
     Doctor doctor;
 
-//    @OneToMany
-//    @Builder.Default
-//    List<Comment> commentList = new ArrayList<>();
-//
+    @OneToMany
+    @Builder.Default
+    List<Comment> commentList = new ArrayList<>();
+
 
 
 
