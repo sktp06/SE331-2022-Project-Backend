@@ -2,10 +2,9 @@ package se331.rest.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -17,7 +16,12 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    String name;
+//    String name;
     String comment;
+
+    @OneToMany
+    @Builder.Default
+    List<Patient> patientList = new ArrayList<>();
+
 
 }

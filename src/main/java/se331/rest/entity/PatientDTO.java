@@ -22,7 +22,7 @@ public class PatientDTO {
     String second_dose;
     String first_dose_date;
     String second_dose_date;
-    String doctor_comment_patient;
+//    String doctor_comment_patient;
     String image;
     List<String> imageUrls;
 

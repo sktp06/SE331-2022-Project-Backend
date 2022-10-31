@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CommentDTO {
     Long id;
-    String name;
+//    String name;
     String comment;
 }

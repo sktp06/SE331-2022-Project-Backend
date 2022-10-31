@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import se331.rest.entity.Comment;
 import se331.rest.entity.CommentDTO;
+import se331.rest.entity.Doctor;
 import se331.rest.entity.Patient;
 import se331.rest.service.CommentService;
 import se331.rest.service.PatientService;
@@ -25,11 +26,17 @@ public class CommentController {
     ResponseEntity<?> getComments() {
         return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(commentService.getAllComments()));
     }
-    @PostMapping("/comment/patient/{id}")
-    ResponseEntity<?> addComment(@PathVariable("id") Long id, @RequestBody Comment comment) {
-        Patient output = patientService.getPatient(id);
-        output.getCommentList().add(comment);
-        Comment outComment = commentService.save(comment);
-        return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(outComment));
+//    @PostMapping("/comment/patient/{id}")
+//    ResponseEntity<?> addComment(@PathVariable("id") Long id, @RequestBody Comment comment) {
+//        Patient output = patientService.getPatient(id);
+//        output.getCommentList().add(comment);
+//        Comment outComment = commentService.save(comment);
+//        return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(outComment));
+//    }
+
+    @PostMapping("/comment")
+    public ResponseEntity<?> addComment(@RequestBody Comment comment) {
+        Comment output = commentService.save(comment);
+        return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(output));
     }
 }

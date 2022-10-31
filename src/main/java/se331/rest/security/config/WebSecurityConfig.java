@@ -55,6 +55,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET,"/user/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/register").permitAll()
+                .antMatchers(HttpMethod.POST,"/comment").permitAll()
                 .antMatchers(HttpMethod.POST,"/doctor").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/doctor").hasRole("DOCTOR")
                 .antMatchers(HttpMethod.POST,"/changeRole").hasRole("ADMIN")

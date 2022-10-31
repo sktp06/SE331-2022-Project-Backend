@@ -7,9 +7,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import se331.rest.entity.Comment;
 import se331.rest.entity.Doctor;
 import se331.rest.entity.Patient;
 import se331.rest.entity.Vaccine;
+import se331.rest.repository.CommentRepository;
 import se331.rest.repository.DoctorRepository;
 import se331.rest.repository.PatientRepository;
 import se331.rest.repository.VaccineRepository;
@@ -37,6 +39,9 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    CommentRepository commentRepository;
+
 
     @Override
     @Transactional
@@ -62,6 +67,26 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("Moderna")
                 .build());
 
+        Comment com1, com2, com3, com4, com5, com6;
+        com1 = commentRepository.save(Comment.builder()
+                .comment("Drink more water")
+                .build());
+        com2 = commentRepository.save(Comment.builder()
+                .comment("Stop smoking")
+                .build());
+        com3 = commentRepository.save(Comment.builder()
+                .comment("Eat a balanced diet")
+                .build());
+        com4 = commentRepository.save(Comment.builder()
+                .comment("Maintain a healthy weight")
+                .build());
+        com5 = commentRepository.save(Comment.builder()
+                .comment("Prioritise sleep")
+                .build());
+        com6 = commentRepository.save(Comment.builder()
+                .comment("Exercise more")
+                .build());
+
         Patient pat1, pat2, pat3, pat4, pat5, pat6;
         pat1 = patientRepository.save(Patient.builder()
                 .name("Kylie")
@@ -72,12 +97,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .second_dose("Pfizer")
                 .first_dose_date("Jun 14, 2022")
                 .second_dose_date("Sep 20, 2022")
-                .doctor_comment_patient("Drink more water")
+//                .doctor_comment_patient("Drink more water")
                 .image("https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/9291601308707957042cdedd2b77a85e~c5_720x720.jpeg?x-expires=1667156400&x-signature=67VSV8PrBsl7QI3oNFruTKHmxyk%3D")
                 .build());
         vac1.getPatientList().add(pat1);
         vac1.getPatientList().add(pat1);
         doc1.getPatientList().add(pat1);
+        com1.getPatientList().add(pat1);
+
 
         pat2 = patientRepository.save(Patient.builder()
                 .name("Travis")
@@ -88,11 +115,13 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .second_dose("-")
                 .second_dose_date("-")
                 .first_dose_date("Jan 30, 2022")
-                .doctor_comment_patient("Stop smoking")
+//                .doctor_comment_patient("Stop smoking")
                         .image("https://media.gq.com/photos/5f356039092046da7abdb510/master/w_2000,h_3000,c_limit/travis-scott-gq-cover-september-2020-04.jpg")
                 .build());
         vac3.getPatientList().add(pat2);
         doc1.getPatientList().add(pat2);
+        com2.getPatientList().add(pat2);
+
 
         pat3 = patientRepository.save(Patient.builder()
                 .name("Kendall")
@@ -103,12 +132,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .second_dose("Moderna")
                 .first_dose_date("Apr 05, 2022")
                 .second_dose_date("July 12, 2022")
-                .doctor_comment_patient("Eat a balanced diet")
+//                .doctor_comment_patient("Eat a balanced diet")
                 .image("https://media.allure.com/photos/621e32e93c1316abf45cb59b/2:3/w_1940,h_2910,c_limit/kendall%20jenner%20.jpg")
                 .build());
         vac2.getPatientList().add(pat3);
         vac2.getPatientList().add(pat3);
         doc1.getPatientList().add(pat3);
+        com3.getPatientList().add(pat3);
+
 
         pat4 = patientRepository.save(Patient.builder()
                 .name("Bella")
@@ -119,12 +150,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .second_dose("Pfizer")
                 .first_dose_date("Feb 19, 2022")
                 .second_dose_date("Jun 25, 2022")
-                .doctor_comment_patient("Maintain a healthy weight")
+//                .doctor_comment_patient("Maintain a healthy weight")
                 .image("https://media.vanityfair.com/photos/61f81ae4d25c05ade4095a79/1:1/w_2761,h_2761,c_limit/1200014422")
                 .build());
         vac1.getPatientList().add(pat4);
         vac2.getPatientList().add(pat4);
         doc2.getPatientList().add(pat4);
+        com4.getPatientList().add(pat4);
+
 
 
         pat5 = patientRepository.save(Patient.builder()
@@ -136,12 +169,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .second_dose("Moderna")
                 .first_dose_date("Jan 24, 2022")
                 .second_dose_date("April 19, 2022")
-                .doctor_comment_patient("Prioritise sleep")
+//                .doctor_comment_patient("Prioritise sleep")
                 .image("https://i.scdn.co/image/ab6761610000e5ebd3a1193ab04e0fb2b297e619")
                 .build());
         vac1.getPatientList().add(pat5);
         vac3.getPatientList().add(pat5);
         doc2.getPatientList().add(pat5);
+        com5.getPatientList().add(pat5);
+
 
 
         pat6 = patientRepository.save(Patient.builder()
@@ -153,11 +188,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .first_dose_date("Jan 02, 2022")
                 .second_dose("-")
                 .second_dose_date("-")
-                .doctor_comment_patient("Exercise more")
+//                .doctor_comment_patient("Exercise more")
                 .image("https://media.glamour.com/photos/60afe10e10793d699b3144cd/6:7/w_2568,h_2996,c_limit/SOUR_FINAL.jpg")
                 .build());
         vac2.getPatientList().add(pat6);
         doc2.getPatientList().add(pat6);
+        com6.getPatientList().add(pat6);
         addUser();
 
         doc1.setUser(user1);

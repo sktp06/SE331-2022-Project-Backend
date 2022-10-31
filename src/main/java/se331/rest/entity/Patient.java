@@ -25,7 +25,7 @@ public class Patient {
     String second_dose;
     String first_dose_date;
     String second_dose_date;
-    String doctor_comment_patient;
+//    String doctor_comment_patient;
     String image;
     @ElementCollection
     List<String> imageUrls;
@@ -36,10 +36,10 @@ public class Patient {
     @ManyToOne
     Doctor doctor;
 
-    @OneToMany
-    @Builder.Default
-    List<Comment> commentList = new ArrayList<>();
-
+//    @OneToMany
+//    @Builder.Default
+//    List<Comment> commentList = new ArrayList<>();
+//
 
 
 
