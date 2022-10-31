@@ -1,10 +1,12 @@
 package se331.rest.dao;
 
+import org.checkerframework.checker.units.qual.C;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import se331.rest.entity.Comment;
+import se331.rest.entity.Doctor;
 import se331.rest.repository.CommentRepository;
 
 @Repository
@@ -18,5 +20,10 @@ public class CommentDaoImpl implements CommentDao{
     @Override
     public Page<Comment> getComment(Pageable pageRequest) {
         return commentRepository.findAll(pageRequest);
+    }
+
+    @Override
+    public Comment getComment(Long id) {
+        return commentRepository.findById(id).orElse(null);
     }
 }

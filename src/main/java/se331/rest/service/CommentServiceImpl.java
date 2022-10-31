@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.CommentDao;
 import se331.rest.entity.Comment;
+import se331.rest.entity.Doctor;
 
 import java.util.List;
 
@@ -17,6 +18,12 @@ public class CommentServiceImpl implements CommentService {
     public Comment save(Comment comment) {
         return commentDao.save(comment);
     }
+
+    @Override
+    public Comment getComment(Long id) {
+        return commentDao.getComment(id);
+    }
+
 
     @Override
     public List<Comment> getAllComments() {
