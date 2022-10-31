@@ -81,8 +81,6 @@ public class UserController {
                 .name(fakeuser.getFirstname())
                 .surname(fakeuser.getLastname())
                 .image(fakeuser.getImage())
-                .age(fakeuser.getAge())
-                .homeTown(fakeuser.getHometown())
                 .build();
         changeUser.setUser(fakeuser);
 

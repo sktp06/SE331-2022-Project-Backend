@@ -27,7 +27,7 @@ public class User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -69,8 +69,6 @@ public class User {
     @Column(name="HOMETOWN")
     String hometown;
 
-    @Column(name="GENDER")
-    String gender;
 
 
     @Builder.Default
