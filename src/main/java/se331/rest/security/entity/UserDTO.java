@@ -13,8 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
+    Long id;
     String username;
     String email;
+    String firstname;
+    String lastname;
     String password;
     String age;
     String gender;

@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.POST,"/comment").permitAll()
                 .antMatchers(HttpMethod.POST,"/doctor").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/comment/patient/{id}").hasRole("DOCTOR")
-                .antMatchers(HttpMethod.POST,"/changeRole").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/changeRoleToPeople").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/setDoctorToUser").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/changeRoleToDoctor").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/uploadFile").permitAll()
