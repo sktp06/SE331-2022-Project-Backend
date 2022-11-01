@@ -1,4 +1,4 @@
-name: Deploy to Aws Docker on merge prod
+name: deploy aws
 
 'on':
 
