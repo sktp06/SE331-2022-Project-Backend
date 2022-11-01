@@ -46,6 +46,7 @@ public class DoctorController {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
         }
+
     }
 
     @PostMapping("/doctor")
